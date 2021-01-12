@@ -5,10 +5,12 @@ using UnityEngine;
 public class BirdController : MonoBehaviour
 {
     public int speed = 100;
+    private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -16,7 +18,7 @@ public class BirdController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.Translate(Vector3.up * speed * Time.deltaTime);
+            rb.velocity = Vector2.up * speed;
         }
     }
 }
